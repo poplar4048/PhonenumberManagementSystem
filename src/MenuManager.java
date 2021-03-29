@@ -3,11 +3,12 @@ import java.util.Scanner;
 public class MenuManager {
 
 	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);	
+		int num = 5;
 		
-		int num = 0;
-		Scanner input = new Scanner(System.in);
 				
 		while (num  !=6) {
+			System.out.println("*** Phone Number Management System Menu  ***");
 			System.out.println("1. Add Number");
 			System.out.println("2. Delete Number");
 			System.out.println("3. Edit Number");
@@ -16,45 +17,49 @@ public class MenuManager {
 			System.out.println("6. Exit");
 			System.out.println("Select one number between 1-6");
 			num = input.nextInt();
-			//if (num==1) {
-				//System.out.print("Phonenumber:");
-				//int Phonenumber = input.nextInt();
-				//System.out.print("Name:");
-				//String Name = input.next();
-				//System.out.print("Phonenumber:");
-			switch(num) {
-			case 1:
-				System.out.print("Phone number:");
-				int Phonenumber = input.nextInt();
-				System.out.print("Name:");
-				String Name = input.next();
-				System.out.println("Done!");
-				break;
-			case 2:
-				System.out.print("Delete Number:");
-				String DeleteNumber = input.next();
-				System.out.println("Done!");
-				break;
-			case 3:
-				System.out.print("Before Edit Number:");
-				String BeforeEditNumber = input.next();
-				System.out.print("After Edit Number:");
-				String AfterEditNumber = input.next();
-				System.out.println("Done!");
-				break;
-			case 4:
-				System.out.println("View Number");
-				//추후에 전화번호 데이터가 등록되면 보여질곳
-				System.out.println("Done!");
-				break;
-			case 5:
-				continue;
-			case 6:
-				break;
-			
+			if (num == 1) {
+				addPhonenumber();
 			}
-			
-		}
+			else if (num == 2) {
+				deletePhonenumber();
+			}
+			else if (num == 3) {
+				editPhonenumber();
+			}
+			else if (num == 4) {
+				veiwPhonenumber();
+			}
+			else {
+				continue;
+			}
 
+		}	
+	}
+	
+	public static void addPhonenumber() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Phonenumber:");
+		int Phonenumber = input.nextInt();
+		System.out.print("Name:");
+		String Name = input.next();
+	}
+	
+	public static void deletePhonenumber() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Phonenumber:");
+		int Phonenumber = input.nextInt();
+	}
+	public static void editPhonenumber() {
+		Scanner input = new Scanner(System.in);
+		System.out.print("BeforePhonenumber:");
+		int BeforePhonenumber = input.nextInt();
+		System.out.print("AfterPhonenumber:");
+		int AfterPhonenumber = input.nextInt();
+		System.out.print("Name:");
+		String Name = input.next();
+	}
+	public static void veiwPhonenumber() {
+		System.out.println("View Number");
+		System.out.println("Done!");
 	}
 }	
