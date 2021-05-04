@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import phonenumber.CompanyNumber;
 import phonenumber.Phonenumber;
+import phonenumber.PhonenumberKind;
 import phonenumber.SocialNumber;
 
 public class PhonenumberManager {	
@@ -15,18 +17,26 @@ public class PhonenumberManager {
 		int kind = 0;
 		Phonenumber phonenumber;
 		while (kind != 1 && kind != 2) {
-			System.out.print("1. Friend");
-			System.out.print("2. Social");
+			System.out.println("1. Friend");
+			System.out.println("2. Social");
+			System.out.println("3. Company");
 			System.out.print("Select Group:");
 			kind = input.nextInt();
 			if (kind == 1) {
-				phonenumber = new Phonenumber();
+				phonenumber = new Phonenumber(PhonenumberKind.Friend);
 				phonenumber.getUserInput(input);
 				phonenumbers.add(phonenumber);
 				break;
 			}
 			else if (kind == 2) {
-				phonenumber = new SocialNumber();
+				phonenumber = new SocialNumber(PhonenumberKind.Social);
+				phonenumber.getUserInput(input);
+				phonenumbers.add(phonenumber);
+				break;
+			}
+			
+			else if (kind == 3) {
+				phonenumber = new CompanyNumber(PhonenumberKind.Company);
 				phonenumber.getUserInput(input);
 				phonenumbers.add(phonenumber);
 				break;

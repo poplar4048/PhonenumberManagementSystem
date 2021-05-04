@@ -5,6 +5,29 @@ import java.util.Scanner;
 public class Phonenumber {
 	
 	protected PhonenumberKind kind = PhonenumberKind.Friend;
+	protected int number;
+	protected String name;
+	protected String address;
+	
+	public Phonenumber() {
+		
+	}
+	
+	public Phonenumber(PhonenumberKind kind) {
+		this.kind = kind;	
+	}
+	
+	public Phonenumber(int number, String name) {
+		this.number = number;
+		this.name = name;
+	}
+	
+	public Phonenumber(PhonenumberKind kind, int number, String name, String address) {
+		this.kind = kind;
+		this.number = number;
+		this.name = name;
+		this.address = address;
+	}
 	public PhonenumberKind getKind() {
 		return kind;
 	}
@@ -28,21 +51,36 @@ public class Phonenumber {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	protected int number;
-	protected String name;
 	
-	public Phonenumber() {
-		
-	}
-	
-	public Phonenumber(int number, String name) {
-		this.number = number;
-		this.name = name;
+	public String getAddress() {
+		return address;
 	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	public void printInfo() { 
-		System.out.println("number:" + number + "name:" + name);
+		
+		String skind = "none";
+		
+		switch(this.kind) {	
+		case Friend:
+			skind = "Friend";
+			break;
+		case Social:
+			skind = "Social";
+			break;
+		case Company:
+			skind = "Company";
+			break;
+		case University:
+			skind = "University";
+			break;
+		default:
+			
+		}
+		System.out.println("kind:"+ skind + "number:" + number + "name:" + name + "address:" + address + "company address:" + address);
 	}
 	
 	public void getUserInput(Scanner input) {
@@ -53,5 +91,9 @@ public class Phonenumber {
 		System.out.print("Name:");	
 		String name = input.next(); 
 		this.setName(name);
+		
+		System.out.print("Address:");	
+		String address = input.next(); 
+		this.setAddress(address);
 	}
 }
