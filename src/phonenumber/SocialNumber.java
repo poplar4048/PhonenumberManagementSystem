@@ -1,8 +1,8 @@
-package	 phonenumber;
+package	phonenumber;
 
 import java.util.Scanner;
 
-public class SocialNumber extends Phonenumber {
+public class SocialNumber extends Phonenumber implements Phoneinput {
 	
 	public SocialNumber(PhonenumberKind kind) {
 		super(kind);	
@@ -37,7 +37,29 @@ public class SocialNumber extends Phonenumber {
 			else {
 			
 			}
-		}	
-		
+		}
+	}	
+		public void printInfo() { 
+			
+			String skind = "none";
+			
+			switch(this.kind) {	
+			case Friend:
+				skind = "Friend";
+				break;
+			case Social:
+				skind = "Social";
+				break;
+			case Company:
+				skind = "Company";
+				break;
+			case University:
+				skind = "University";
+				break;
+			default:
+				
+			}
+			System.out.println("kind:"+ skind + "number:" + number + "name:" + name + "address:" + address + "company address:" + address);				
 	}
+
 }

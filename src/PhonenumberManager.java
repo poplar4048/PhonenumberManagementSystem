@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import phonenumber.CompanyNumber;
+import phonenumber.FriendNumber;
+import phonenumber.Phoneinput;
 import phonenumber.Phonenumber;
 import phonenumber.PhonenumberKind;
 import phonenumber.SocialNumber;
 
 public class PhonenumberManager {	
-	ArrayList<Phonenumber> phonenumbers = new ArrayList<Phonenumber>();  //클래스를 다루는 것 
+	ArrayList<Phoneinput> phonenumbers = new ArrayList<Phoneinput>();  //클래스를 다루는 것 
 	Scanner input;
 	PhonenumberManager(Scanner input){  //클래스 레벨에 두면 모든 메소드에서 인풋을 사용 가능하다.
 		this.input = input;
@@ -15,7 +17,7 @@ public class PhonenumberManager {
 	
 	public void addPhonenumber() {
 		int kind = 0;
-		Phonenumber phonenumber;
+		Phoneinput phoneinput;
 		while (kind != 1 && kind != 2) {
 			System.out.println("1. Friend");
 			System.out.println("2. Social");
@@ -23,22 +25,22 @@ public class PhonenumberManager {
 			System.out.print("Select Group:");
 			kind = input.nextInt();
 			if (kind == 1) {
-				phonenumber = new Phonenumber(PhonenumberKind.Friend);
-				phonenumber.getUserInput(input);
-				phonenumbers.add(phonenumber);
+				phoneinput = new FriendNumber(PhonenumberKind.Friend);
+				phoneinput.getUserInput(input);
+				phonenumbers.add(phoneinput);
 				break;
 			}
 			else if (kind == 2) {
-				phonenumber = new SocialNumber(PhonenumberKind.Social);
-				phonenumber.getUserInput(input);
-				phonenumbers.add(phonenumber);
+				phoneinput = new SocialNumber(PhonenumberKind.Social);
+				phoneinput.getUserInput(input);
+				phonenumbers.add(phoneinput);
 				break;
 			}
 			
 			else if (kind == 3) {
-				phonenumber = new CompanyNumber(PhonenumberKind.Company);
-				phonenumber.getUserInput(input);
-				phonenumbers.add(phonenumber);
+				phoneinput = new CompanyNumber(PhonenumberKind.Company);
+				phoneinput.getUserInput(input);
+				phonenumbers.add(phoneinput);
 				break;
 			}
 			else {
@@ -72,8 +74,8 @@ public class PhonenumberManager {
 		System.out.print("Phonenumber:");
 		int number = input.nextInt();
 		for (int i = 0; i < phonenumbers.size(); i++) {
-			Phonenumber phonemunber = phonenumbers.get(i);
-			if (phonemunber.getNumber() == number) {
+			Phoneinput phoneinput = phonenumbers.get(i);
+			if (phoneinput.getNumber() == number) {
 				int num = -1;				
 				while (num  !=3) {
 					System.out.println("*** Phone Number Info Edit Menu  ***");
@@ -85,12 +87,12 @@ public class PhonenumberManager {
 					if (num == 1) {
 						System.out.print("Number");
 						int number1 = input.nextInt();
-						phonemunber.setNumber(number1);
+						phoneinput.setNumber(number1);
 					}
 					else if (num == 2) {
 						System.out.print("Name");
 						String name = input.next();
-						phonemunber.setName(name);
+						phoneinput.setName(name);
 					}
 					else {
 						continue;
