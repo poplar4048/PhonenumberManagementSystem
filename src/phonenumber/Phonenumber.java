@@ -61,18 +61,5 @@ public abstract class Phonenumber { //객체를 생성하지 않는다.
 	}
 	
 	public abstract void printInfo();
-	
-//	public void getUserInput(Scanner input) {
-//		System.out.print("Phonenumber:");
-//		int number = input.nextInt();
-//		this.setNumber(number);
-//		
-//		System.out.print("Name:");	
-//		String name = input.next(); 
-//		this.setName(name);
-//		
-//		System.out.print("Address:");	
-//		String address = input.next(); 
-//		this.setAddress(address);
-//	}
+
 }
