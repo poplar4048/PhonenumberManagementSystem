@@ -2,7 +2,7 @@ package	phonenumber;
 
 import java.util.Scanner;
 
-public class SocialNumber extends Phonenumber implements Phoneinput {
+public class SocialNumber extends Phonenumber {
 	
 	public SocialNumber(PhonenumberKind kind) {
 		super(kind);	
@@ -39,6 +39,8 @@ public class SocialNumber extends Phonenumber implements Phoneinput {
 			}
 		}
 	}	
+
+
 		public void printInfo() { 
 			
 			String skind = "none";
@@ -61,5 +63,11 @@ public class SocialNumber extends Phonenumber implements Phoneinput {
 			}
 			System.out.println("kind:"+ skind + "number:" + number + "name:" + name + "address:" + address + "company address:" + address);				
 	}
+
+		@Override
+		public void setAddress(String address) {
+			// TODO Auto-generated method stub
+			
+		}
 
 }

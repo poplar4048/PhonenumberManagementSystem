@@ -2,32 +2,25 @@ package phonenumber;
 
 import java.util.Scanner;
 
-public class CompanyNumber extends Phonenumber implements Phoneinput {
+public class CompanyNumber extends Phonenumber {
 	
 	protected String companyAddress;
 	
 	public CompanyNumber(PhonenumberKind kind) {
 		super(kind);	
 	}
-	
+		
 	public void getUserInput(Scanner input) {
-		System.out.print("Phonenumber:");
-		int number = input.nextInt();
-		this.setNumber(number);
-	
-		System.out.print("Name:");	
-		String name = input.next(); 
-		this.setName(name);
+		setNumber(input);
+		setName(input);
 		
 		char answer = 'x';
 		
 		while (answer != 'y' && answer != 'Y' && answer != 'n' && answer != 'N') {
 			System.out.print("Do you register address? (Y/N)");
-				answer = input.next().charAt(0);
+				answer = input.next().charAt(0);	
 				if (answer == 'y' || answer == 'Y') {
-					System.out.print("Address:");
-					String address = input.next();
-					this.setAddress(address);
+					setAddress(input);
 					break;
 				}
 			
@@ -47,8 +40,6 @@ public class CompanyNumber extends Phonenumber implements Phoneinput {
 		System.out.print("Do you register company address? (Y/N)");
 			answer = input.next().charAt(0);
 			if (answer == 'y' || answer == 'Y') {
-				System.out.print("Company address:");
-				String address = input.next();
 				this.setAddress(address);
 				break;
 			}
@@ -64,8 +55,13 @@ public class CompanyNumber extends Phonenumber implements Phoneinput {
 		}	
 		
 	}
-	
+
 	public void printInfo() { 
+		String skind = getKindString();
+		System.out.println("kind:"+ skind + "number:" + number + "name:" + name + "address:" + address + "company address:" + address);
+	}
+	
+	public String getKindString() {
 		
 		String skind = "none";
 		
@@ -85,7 +81,12 @@ public class CompanyNumber extends Phonenumber implements Phoneinput {
 		default:
 			
 		}
-		System.out.println("kind:"+ skind + "number:" + number + "name:" + name + "address:" + address + "company address:" + address);
+		return skind;
 	}
-	
+
+	@Override
+	public void setAddress(String address) {
+		// TODO Auto-generated method stub
+		
+	}
 }
