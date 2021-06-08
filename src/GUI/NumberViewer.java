@@ -1,13 +1,18 @@
-package GUI;
+package GUI;	
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class NumberViewer extends JFrame {
+public class NumberViewer extends JPanel {
 
-	public NumberViewer() {
+	WindowFrame frame;
+	
+	public NumberViewer(WindowFrame frame) {
+		this.frame = frame;
+
 		DefaultTableModel model = new DefaultTableModel();
 		model.addColumn("Number");
 		model.addColumn("Name");
@@ -17,9 +22,6 @@ public class NumberViewer extends JFrame {
 		JScrollPane sp = new JScrollPane(table);
 		
 		this.add(sp);		
-		this.setSize(300, 300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);	
 	}
 
 }

@@ -6,6 +6,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import GUI.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -15,10 +17,13 @@ public class MenuManager {
 		
 		Scanner input = new Scanner(System.in);	
 		PhonenumberManager phonenumberManager = getObject("phonenumbermanager.ser");
+		
 		if (phonenumberManager == null) {
 			phonenumberManager = new PhonenumberManager(input);
 		}
 		
+		
+		WindowFrame frame = new WindowFrame();
 		selectMenu(input, phonenumberManager);
 		putObject(phonenumberManager, "phonenumbermanager.ser");
 	}
